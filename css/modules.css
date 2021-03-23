@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+    color: blue;
+    font-size: xx-large;
+    padding: 75px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+}
+
+select{
+    text-align: center;
+}
+
+section {
+    text-align: center;
+}
+section h2{
+    font-size: x-large;
+    font-family: 'Indie Flower', cursive;
+    color: blue;
+}
+
+section p{
+    width: 300px;
+    font-size: medium;
+    font-style: oblique;
+    font-weight: bold;
+    color: rgb(173, 86, 100);
+}

@@ -1,0 +1,14 @@
+img{
+    height: 300px;
+    width: 300px;
+    
+}
+section{
+    float: left;
+    padding: 10px;
+    border: 1px solid blue;
+}
+select{
+    /* margin-top: 50px; */
+    margin-left: 45%;
+}
