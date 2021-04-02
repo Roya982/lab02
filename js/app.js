@@ -1,8 +1,14 @@
 'use strict';
 
-$('document').ready(getElement);
+$('document').ready(getElement('./data/page-1.json'));
+
+$('#page2').on('click', function () {
+
+  getElement('./data/page-2.json');
+});
 
 $('#selector').on('change', showPic);
+
 
 const hornNum =[];
 const dropDownList = [];
@@ -47,7 +53,7 @@ function showPic(){
   console.log(selectKey);
 }
 
-function getElement(){
+function getElement(path){
 
   
   const ajaxSettings ={
@@ -57,7 +63,7 @@ function getElement(){
 
 
 
-  $.ajax('../data/page-1.json', ajaxSettings).then(data=>{
+  $.ajax(path , ajaxSettings).then(data=>{
     data.forEach(element => {
       let getObject = new Photo(element.title, element.image_url, element.description, element.keyword, element.horns);
       // console.log(getObject);
@@ -65,6 +71,28 @@ function getElement(){
     });
     changeOption();
   });
+}
+
+function sortByTitle(a,b){
+  let firstTitle= a.title.replace(/[^a-z]/gi, '');
+  let secondTitle = b.title.replace(/[^a-z]/gi, '');
+  if (firstTitle.toLowerCase() < secondTitle.toLowerCase()){
+    return -1;
+  }
+  else{
+    return 1;
+  }
+  return 0;
+}
+
+
+function sortByHorns(a, b){
+  if(a.horns < b.horns){
+    return -1
+  }else{
+    return 1;
+  }
+  return 0;
 }
 
 function changeOption() {
@@ -75,3 +103,4 @@ function changeOption() {
   });
 }
 
+let sort = $('input:radio');
